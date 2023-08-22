@@ -1,17 +1,19 @@
-#----------------------------------------------------------------------------------------
-# 5. Sabiendo que ValueError es la excepción que se lanza cuando no podemos convertir una 
-# cadena de texto en su valor numérico, escriba una función get_int() que lea un valor entero 
-# del usuario y lo devuelva, iterando mientras el valor no sea correcto. Intente resolver el 
-# ejercicio tanto de manera iterativa como recursiva. 
-#----------------------------------------------------------------------------------------
+'''
+5. Sabiendo que ValueError es la excepción que se lanza cuando no podemos convertir una
+cadena de texto en su valor numérico, escriba una función get_int() que lea un valor entero 
+del usuario y lo devuelva, iterando mientras el valor no sea correcto. Intente resolver el
+ejercicio tanto de manera iterativa como recursiva.
+'''
 
 def get_int():
-    '''Solicita un número entero al usuario e imprime una cadena formateada indicando su valor.'''
-    numero_entero = int(input("Por favor, ingrese un número entero:"))
-    print("\nEl número ingresado es {}.\n".format(numero_entero))
+    '''Solicita un número entero al usuario e \
+        imprime una cadena formateada indicando su valor.'''
+    int_numero = int(input("Por favor, ingrese un número entero:"))
+    print(f"\nEl número ingresado es {int_numero}.\n")
 
 def get_int_iterativa():
-    '''Solicita un valor al usuario y valida que éste sea un número entero (emulando un bucle Do While).'''
+    '''Solicita un valor al usuario y valida que éste sea un número entero \
+        (emulando un bucle While Do).'''
     while True:
         try:
             get_int()
@@ -20,9 +22,10 @@ def get_int_iterativa():
             print("El valor ingresado no es un número entero. Reintentar...")
 
 def get_int_recursiva():
-    '''Solicita un valor al usuario y valida que sea un número entero (aplicando recursividad).'''
+    '''Solicita un valor al usuario y valida que sea un número entero \
+        (aplicando recursividad).'''
     try:
-        get_int()
+        return get_int()
     except ValueError:
         print("El valor ingresado no es un número entero. Reintentar...")
         return get_int_recursiva()
