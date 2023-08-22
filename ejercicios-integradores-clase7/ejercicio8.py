@@ -45,7 +45,7 @@ class CuentaJoven(Cuenta):
         objeto de clase Persona.
         '''
         super().__init__(nombre, edad, dni)
-        self._bonificacion = bonificacion
+        self.bonificacion = bonificacion
 
     @property
     def bonificacion(self):

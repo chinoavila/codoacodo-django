@@ -31,9 +31,9 @@ class Persona():
 
     def __init__(self, nombre="", edad=0, dni=""):
         '''Constructor: inicializa los atributos básicos de la persona.'''
-        self._nombre = nombre
-        self._edad = edad
-        self._dni = dni
+        self.nombre = nombre
+        self.edad = edad
+        self.dni = dni
 
     @property
     def nombre(self):
@@ -47,7 +47,7 @@ class Persona():
 
     @nombre.setter
     def nombre(self, nombre_nuevo):
-        if nombre_nuevo.replace(" ", "").isalpha():
+        if nombre_nuevo == "" or nombre_nuevo.replace(" ", "").isalpha():
             self._nombre = nombre_nuevo
         else:
             print("El dato ingresado debe ser una cadena sin números.")
@@ -83,7 +83,7 @@ class Persona():
     @dni.setter
     def dni(self, dni):
         regex = r'^\d{7,8}$'
-        if re.match(regex, dni) is not None:
+        if dni == "" or re.match(regex, dni) is not None:
             self._dni = dni
         else:
             print("El formato del dato ingresado no es correcto.")

@@ -44,7 +44,9 @@ class Cuenta():
         El argumento "cantidad" es opcional y de tipo float.
         '''
         self._titular = Persona(nombre, edad, dni)
-        self._cantidad = cantidad
+        self._cantidad = 0
+        if cantidad > 0:
+            self.ingresar(cantidad)
 
     @property
     def titular(self):
@@ -58,7 +60,11 @@ class Cuenta():
 
     @titular.setter
     def titular(self, nuevo_titular):
-        self._titular = nuevo_titular
+        if isinstance(nuevo_titular,Persona):
+            self._titular = nuevo_titular
+        else:
+            print("El dato ingresado no corresponde \
+                  a una instancia de la clase Persona.")
 
     @property
     def cantidad(self):
