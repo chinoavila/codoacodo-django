@@ -33,18 +33,18 @@ class Cuenta():
         del atributo "cantidad".
     '''
 
-    def __init__(self, nombre, edad, dni, cantidad = 0):
+    def __init__(self, nombre, edad, dni, cantidad = 0.00):
         '''
         Constructor: inicializa los atributos básicos de la persona.
 
-        El argumento "titular" es obligatorio, debiendo pasarle un \
+        El atributo "titular" es obligatorio, debiendo pasarle un \
         objeto de clase Persona a partir de los parámetros recibidos \
-        en los argumentos nombre, edad y dni.
+        en los argumentos obligatorios nombre, edad y dni.
         
         El argumento "cantidad" es opcional y de tipo float.
         '''
         self._titular = Persona(nombre, edad, dni)
-        self._cantidad = 0
+        self._cantidad = 0.00
         if cantidad > 0:
             self.ingresar(cantidad)
 

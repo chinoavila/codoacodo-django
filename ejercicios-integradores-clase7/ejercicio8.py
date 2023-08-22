@@ -37,14 +37,19 @@ class CuentaJoven(Cuenta):
         del atributo "cantidad".
     '''
 
-    def __init__(self, nombre, edad, dni, bonificacion=0.00):
+    def __init__(self, nombre, edad, dni, cantidad=0.00, bonificacion=0.00):
         '''
         Constructor: inicializa los atributos básicos de la cuenta.
 
-        El argumento "titular" es obligatorio, debiendo pasarle un \
-        objeto de clase Persona.
+        El atributo "titular" es obligatorio, debiendo pasarle un \
+        objeto de clase Persona a partir de los parámetros recibidos \
+        en los argumentos obligatorios nombre, edad y dni.
+        
+        El argumento "cantidad" es opcional y de tipo float.
+
+        El argumento "bonificacion" es opcional y de tipo float.
         '''
-        super().__init__(nombre, edad, dni)
+        super().__init__(nombre, edad, dni, cantidad)
         self.bonificacion = bonificacion
 
     @property
@@ -95,7 +100,7 @@ class CuentaJoven(Cuenta):
 
 # DESCOMENTAR TODAS LAS LINEAS DE ABAJO PARA PROBAR
 print("\nEjercicio 8:\n")
-objeto_cuenta_joven = CuentaJoven("Alejandro Ávila", 29, "12345678", 25.3)
+objeto_cuenta_joven = CuentaJoven("Alejandro Ávila", 29, "12345678", 2500, 25.3)
 objeto_cuenta_joven.titular.mostrar()  # muestro los datos del Titular
 # muestro el porcentaje de bonificación de la cuenta
 # accediendo al método por su nombre completo destrozado
