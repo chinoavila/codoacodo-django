@@ -84,6 +84,10 @@ class CuentaJoven(Cuenta):
         else:
             print("No se puede realizar el retiro. El titular ingresado no es válido.")
 
+    # utilizo NameMangling para darle prioridad al método mostrar()
+    # heredado de la clase Cuenta, ya que posiblemente sea más
+    # frecuente la necesidad de mostrar básicos de la cuenta 
+    # que su procentaje de bonificación.
     def __mostrar(self):
         '''Imprime una cadena formateada con el la leyenda "Cuenta Joven. Bonificación: XX.XX%.".'''
         print(f"Cuenta Joven. Bonificación: {self._bonificacion:.2f}%.")
@@ -93,7 +97,9 @@ class CuentaJoven(Cuenta):
 print("\nEjercicio 8:\n")
 objeto_cuenta_joven = CuentaJoven("Alejandro Ávila", 29, "12345678", 25.3)
 objeto_cuenta_joven.titular.mostrar()  # muestro los datos del Titular
-objeto_cuenta_joven._CuentaJoven__mostrar()  # muestro la bonificación de la cuenta
+# muestro el porcentaje de bonificación de la cuenta
+# accediendo al método por su nombre completo destrozado
+objeto_cuenta_joven._CuentaJoven__mostrar()
 objeto_cuenta_joven.ingresar(1000)  # hago un ingreso
 objeto_cuenta_joven.mostrar()  # muestro el saldo actual de la cuenta
 # intento retirar 200 (arroja Titular inválido por ser mayor de 25)
